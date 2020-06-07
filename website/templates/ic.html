@@ -1,0 +1,27 @@
+{% extends 'base.html' %}	
+
+{% block title %}Inches to Centimeters{% endblock %}
+
+{% block 'content' %} 
+<center>
+	{% if inches %}
+		<div class="alert alert-warning alert-dismissible fade show" role="alert">
+			{{ inches }} Inches is {{ cent }} Centimeters
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		  	<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+	{% endif %}
+	<h1>Inches to Centimeters</h1>
+	
+	<br/><br/>
+	<form action="{% url 'ic' %}" method="POST">
+		{% csrf_token %}
+		<div class="form-group">    
+		    <input type="text" class="form-control" placeholder="Enter Inches" name="inches">    
+		</div>
+		<br/>  
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</center>	
+{% endblock %}
